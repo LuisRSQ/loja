@@ -1,15 +1,9 @@
 package com.exemplo;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CadastrarProduto {
-
-    private static final String IMAGE_DIRECTORY = "C:\\Users\\sandr\\OneDrive\\Área de Trabalho\\trabalho\\loja\\Imagens";
 
     public static void adicionarProduto(Scanner scanner, ArrayList<Item> itens){
 
@@ -25,19 +19,10 @@ public class CadastrarProduto {
         scanner.nextLine();
 
         System.out.println("Digite o caminho da imagem do produto: ");
-        String imagemCaminho = scanner.nextLine();
-        String novoCaminho = IMAGE_DIRECTORY + "\\" + new File(imagemCaminho).getName();
+        String imagem = scanner.nextLine();
 
-        try{
 
-            Files.copy(new File(imagemCaminho).toPath(), new File(novoCaminho).toPath(), StandardCopyOption.REPLACE_EXISTING);
-        }catch (IOException e){
-
-            System.out.println("Erro ao copiar a imagem: " + e.getMessage());
-            return;
-        }
-
-        Item novoitem = new Item(codigo, nome, preco, novoCaminho);
+        Item novoitem = new Item(codigo, nome, preco, imagem);
         itens.add(novoitem);
         System.out.println("Produto adicionado!");
 
