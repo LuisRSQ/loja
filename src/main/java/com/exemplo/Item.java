@@ -33,6 +33,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Código: " + codigo + ", Nome: " + nome + ", Preço: " + preco + ", Imagem: " + imagem;
+        return "Código: " + codigo + ", Nome: " + nome + ", Preço: " + preco + " " + imagem;
     }
 }
